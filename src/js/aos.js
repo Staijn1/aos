@@ -16,6 +16,7 @@ import detect from './helpers/detector';
 import handleScroll from './helpers/handleScroll';
 import prepare from './helpers/prepare';
 import elements from './helpers/elements';
+import { resolveContainer } from './helpers/container';
 
 /**
  * Private variables
@@ -41,7 +42,8 @@ let options = {
   useClassNames: false,
   disableMutationObserver: false,
   throttleDelay: 99,
-  debounceDelay: 50
+  debounceDelay: 50,
+  container: window
 };
 
 // Detect not supported browsers (<=IE9)
@@ -50,17 +52,17 @@ const isBrowserNotSupported = () => document.all && !window.atob;
 
 const initializeScroll = function initializeScroll() {
   // Extend elements objects in $aosElements with their positions
-  $aosElements = prepare($aosElements, options);
+  $aosElements = prepare($aosElements, options, container);
   // Perform scroll event, to refresh view and show/hide elements
-  handleScroll($aosElements);
+  handleScroll($aosElements, container);
 
   /**
    * Handle scroll event to animate elements on scroll
    */
-  window.addEventListener(
+  container.addEventListener(
     'scroll',
     throttle(() => {
-      handleScroll($aosElements, options.once);
+      handleScroll($aosElements, container);
     }, options.throttleDelay)
   );
 
