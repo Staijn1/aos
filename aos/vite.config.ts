@@ -20,6 +20,7 @@ const plugins = [
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: './demo',
   build: {
     rollupOptions: {
       input: 'src/js/aos.js',
