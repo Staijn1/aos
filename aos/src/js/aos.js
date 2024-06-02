@@ -224,6 +224,14 @@ const init = function init(settings) {
  * Export Public API
  */
 
+const AOS = {
+  init,
+  refresh,
+  refreshHard
+}
+
+window.AOS = AOS;
+
 export default {
   init,
   refresh,
