@@ -48,7 +48,7 @@
 
     <script type="module">
       import AOS from '../src/js/aos.js';
-      AOS.init({
+      if (!window.Cypress) AOS.init({
         useClassNames: true,
         initClassName: false,
         animatedClassName: 'animated',
