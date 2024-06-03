@@ -1,5 +1,5 @@
 describe('AOS', function() {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:5173');
     cy.initAOS();
   });
