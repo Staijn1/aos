@@ -25,20 +25,27 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+declare namespace Cypress {
+  interface Chainable {
+    /**
+     * Custom command to initialize AOS with settings
+     * todo: type for when AOS is converted to TypeScript
+     */
+    initAOS(settings?: Record<string, any>): Chainable
+
+    /**
+     * Custom command to dispatch an event
+     * @param eventName The name of the event to dispatch
+     * @param times The number of times to dispatch the event. Default is 1
+     */
+    dispatchEvent(eventName: string, times?: number): Chainable
+  }
+}
 
 Cypress.Commands.add('initAOS', settings => {
   cy.window().then((window) => {
-    window.AOS.init(settings);
+    (window as any).AOS.init(settings);
   });
 });
 
