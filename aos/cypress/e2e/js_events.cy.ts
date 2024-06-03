@@ -1,5 +1,5 @@
-describe('JS Events', function() {
-  context('default events', function() {
+describe('JS Events', function () {
+  context('default events', function () {
     let aosInStub;
     let aosOutStub;
 
@@ -16,24 +16,28 @@ describe('JS Events', function() {
         .initAOS();
     });
 
-    it('Should trigger custom events', function() {
+    it('Should trigger custom events', function () {
       expect(aosInStub).to.have.callCount(6);
       expect(aosOutStub).to.be.not.called;
 
       cy.scrollTo(0, 800);
-      cy.wait(0, () => {
-        expect(aosInStub).to.have.callCount(15);
-      });
+      cy
+        .wait(100)
+        .then(() => {
+          expect(aosInStub).to.have.callCount(15);
+        })
 
       cy.scrollTo('top');
-      cy.wait(0, () => {
-        expect(aosInStub).to.have.callCount(15);
-        expect(aosOutStub).to.have.callCount(9);
-      });
+      cy
+        .wait(100)
+        .then(() => {
+          expect(aosInStub).to.have.callCount(15);
+          expect(aosOutStub).to.have.callCount(9);
+        });
     });
   });
 
-  context('custom events', function() {
+  context('custom events', function () {
     let aosInStub;
     let aosOutStub;
 
@@ -50,19 +54,21 @@ describe('JS Events', function() {
         .initAOS();
     });
 
-    it('Should trigger custom events', function() {
+    it('Should trigger custom events', function () {
       expect(aosInStub).to.be.not.called;
       expect(aosOutStub).to.be.not.called;
 
       cy.scrollTo(0, 350);
-      cy.wait(0, () => {
-        expect(aosInStub).to.be.calledOnce;
-      });
+      cy.wait(100)
+        .then(() => {
+          expect(aosInStub).to.be.calledOnce;
+        });
 
       cy.scrollTo('top');
-      cy.wait(0, () => {
+      cy.wait(100).then(() => {
         expect(aosOutStub).to.be.calledOnce;
       });
     });
   });
-});
+})
+;
