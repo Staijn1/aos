@@ -38,7 +38,6 @@
 
 Cypress.Commands.add('initAOS', settings => {
   cy.window().then((window) => {
-    console.log(window);
     window.AOS.init(settings);
   });
 });

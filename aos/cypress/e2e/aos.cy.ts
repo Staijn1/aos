@@ -1,7 +1,7 @@
 describe('AOS', function() {
   beforeEach(() => {
     cy.visit('http://localhost:5173');
-    // cy.initAOS();
+    cy.initAOS();
   });
 
   it('Should be defined', function() {
