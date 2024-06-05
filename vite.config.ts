@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser'
 // Define the plugins
 const plugins = [
   postcss({
-    extract: 'dist/aos.css',
+    extract: 'aos.css',
     plugins: [autoprefixer, cssnano]
   }),
   babel({
@@ -25,7 +25,8 @@ export default defineConfig({
     rollupOptions: {
       input: 'src/js/aos.js',
       output: {
-        file: 'dist/aos.js',
+        dir: 'dist',
+        entryFileNames: 'aos.js',
         format: 'umd',
         sourcemap: process.env.NODE_ENV === 'dev'
       },
