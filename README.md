@@ -1,3 +1,11 @@
+# THIS REPO IS A FORK
+This repository is a fork of the original AOS library by michalsnik. The original repository can be found [here](https://github.com/michalsnik/aos).  
+The purpose of this fork is to merge outstanding pull requests and issues from the original repository.  
+However, whilst trying to test these merges, I found I could not install the dependencies due to node-gyp errors (incorrect python version, windows build tools errors).  
+Therefore I've replaced Rollup with Vite as it has built-in Sass support, removing the need for `node-sass` dependency (which was one of the problematic dependencies).  
+Then I've updated the code to work with Vite, and upgrade Cypress (which was also causing issues).  
+
+
 [![AOS - Animate on scroll library](https://s32.postimg.org/ktvt59hol/aos_header.png)](http://michalsnik.github.io/aos/)
 
 [![NPM version](https://img.shields.io/npm/v/aos/next.svg?style=flat)](https://npmjs.org/package/aos)
