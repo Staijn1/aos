@@ -1,4 +1,5 @@
 import detect from './detector';
+import { getElementOffset } from './container';
 
 /**
  * Adds multiple classes on node
@@ -77,10 +78,13 @@ const applyClasses = (el, top) => {
 /**
  * Scroll logic - add or remove 'aos-animate' class on scroll
  *
- * @param  {array} $elements         array of elements nodes
+ * @param  {array}                  $elements         array of elements nodes
+ * @param  {(HTMLElement|Window)}   container         AOS container
  * @return {void}
  */
-const handleScroll = $elements =>
-  $elements.forEach((el, i) => applyClasses(el, window.pageYOffset));
+const handleScroll = ($elements, container) => {
+  const top = getElementOffset(container);
+  $elements.forEach((el, i) => applyClasses(el, top));
+};
 
 export default handleScroll;

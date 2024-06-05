@@ -5,6 +5,7 @@
   <title>AOS - Animate on scroll library</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="dist/aos.css" />
   <style>
     .aos-all {
       position: fixed;
@@ -45,8 +46,8 @@
   <div data-id="24" class="aos-item" data-aos="zoom-out-down"></div>
 </div>
 
-<script src="dist/aos.js"></script>
-<script>
+<script type="module">
+  import AOS from '../src/js/aos.js';
   if (!window.Cypress) {
     AOS.init({
       mirror: true,
