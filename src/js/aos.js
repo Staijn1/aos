@@ -229,14 +229,14 @@ const init = function init(settings) {
 };
 
 
-
-// window.AOS = AOS;
-
-/**
- * Export Public API
- */
-export default {
+const AOS = {
   init,
   refresh,
   refreshHard
 };
+window.AOS = AOS;
+
+/**
+ * Export Public API
+ */
+export default AOS;
