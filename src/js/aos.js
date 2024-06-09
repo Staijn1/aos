@@ -228,18 +228,13 @@ const init = function init(settings) {
   return $aosElements;
 };
 
+
+
+// window.AOS = AOS;
+
 /**
  * Export Public API
  */
-
-const AOS = {
-  init,
-  refresh,
-  refreshHard
-}
-
-window.AOS = AOS;
-
 export default {
   init,
   refresh,

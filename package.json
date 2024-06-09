@@ -9,6 +9,14 @@
     "preview": "vite preview",
     "test": "cypress run"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/aos.umd.cjs",
+      "require": "./dist/aos.umd.cjs",
+      "types": "./dist/aos.d.ts"
+    },
+    "./dist/aos.css": "./dist/aos.css"
+  },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
     "@types/lodash.debounce": "^4.0.9",

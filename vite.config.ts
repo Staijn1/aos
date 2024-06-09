@@ -22,14 +22,22 @@ const plugins = [
 export default defineConfig({
   root: './demo',
   build: {
+    lib: {
+      name: 'AOS',
+      entry: '../src/js/aos.js',
+      fileName: 'aos',
+      formats: ['umd']
+    },
     rollupOptions: {
-      input: 'src/js/aos.js',
       output: {
         dir: 'dist',
-        entryFileNames: 'aos.js',
-        format: 'umd',
-        sourcemap: process.env.NODE_ENV === 'dev'
+        globals: {
+          'aos': 'AOS'
+        }
       },
+      // output: {
+      //   entryFileNames: 'aos.js',
+      // },
       plugins: plugins
     }
   },
