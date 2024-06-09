@@ -15,7 +15,7 @@
       "require": "./dist/aos.umd.cjs",
       "types": "./dist/aos.d.ts"
     },
-    "./dist/aos.css": "./dist/aos.css"
+    "./dist/aos.css": "./dist/style.css"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
